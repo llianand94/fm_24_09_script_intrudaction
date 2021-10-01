@@ -1,21 +1,23 @@
-let count = 0;
-while(true){
-  
-  const password = prompt('Enter the password');
-  count++;  
-  const result = MAX_NUMBER_GUESSES-count;
-  
-  console.log(result);
+let num = 1;
 
-  if(password===RIGHT_PASSWORD){
-    alert('Thanks');
-    break;
+const calcfactorial = function(num=1){
+  if(num<0){
+    return null;
   }
-  if(count===MAX_NUMBER_GUESSES){
-    alert('Thanks have no guesses');
-    break;
+  if(num===0 || num===1){
+    return 1;
   }
-    alert('you tryies yet: '+ result);
+  if(num>100){
+    return false;
+  }
+  let result = 1n;
+  for(let i=1; i<=num; i++){
+    result *= BigInt(i);
+  }
+  return result;
 }
-  
+console.log(calcfactorial());
+console.log(calcfactorial(6));
+
+
   
