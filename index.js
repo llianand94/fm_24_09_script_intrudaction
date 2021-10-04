@@ -5,32 +5,32 @@ function CoffeeMachine(brand= 'Ford', maxVolume){
   this.inOn = false;
 
   this.addWater = function(value){
-    if(this.isOn){
+    
       if(value<0 || value+ this.volume >=this.maxVolume){
         return false;
       };
      return this.volume += value;
-    }    
-  };
+    };    
+  
 
   this.makeCoffee = function(value){
+    // if(this.isOn){   
+    //   return this.makeCoffee(value);
+    // }
     if(value<0|| this.volume-value<0){
-      return false;
-    };   
-    return this.volume -= value;
+    return false;
+  }
+  return this.volume -= value;
   };
 
- if(this.isOn === false){
-   return null;
- };
-  this.turnOn = function(value){
-    
-    // if(typeof(Boolean(value))){
-
-    // }
-      
+ 
+  this.turnOn = function(){
+    if(this.makeCoffee){
+      return this.inOn = true;
+    } 
+    return this.inOn = false;
   };
   
 
 };
-const test = new CoffeeMachine(undefined, 150);
+const test = new CoffeeMachine('Yacobs', 150);
