@@ -1,8 +1,8 @@
-function CoffeeMachine(brand= 'Ford', maxVolume){
+function CoffeeMachine(brand= 'Ford', maxVolume=150){
   this.brand = brand;
   this.maxVolume = maxVolume; //ml
   this.volume = 0;
-  this.inOn = false;
+  this.isOn = false;
 
   this.addWater = function(value){
     
@@ -14,23 +14,23 @@ function CoffeeMachine(brand= 'Ford', maxVolume){
   
 
   this.makeCoffee = function(value){
-    // if(this.isOn){   
-    //   return this.makeCoffee(value);
-    // }
-    if(value<0|| this.volume-value<0){
-    return false;
-  }
-  return this.volume -= value;
+    if(this.isOn){ 
+      if(value<0|| this.volume-value<0){
+        return false;
+      }
+      return this.volume -= value;     
+    }
+    return false;    
   };
 
  
   this.turnOn = function(){
-    if(this.makeCoffee){
-      return this.inOn = true;
+    if(this.isOn){
+      return this.isOn = false;      
     } 
-    return this.inOn = false;
+    return this.isOn = true
   };
   
 
 };
-const test = new CoffeeMachine('Yacobs', 150);
+const test = new CoffeeMachine('Yacobs', 160);
