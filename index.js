@@ -1,23 +1,14 @@
-let num = 1;
+function Users(name, sname, age, isAdmin){
+  this.name = name;
+  this.sname = sname;
+  this.age = age;
+  this.isAdmin = isAdmin;
+  this.fullname = function(){
+     return this.name + '  ' + this.sname;
+  }
+};
 
-const calcfactorial = function(num=1){
-  if(num<0){
-    return null;
-  }
-  if(num===0 || num===1){
-    return 1;
-  }
-  if(num>100){
-    return false;
-  }
-  let result = 1n;
-  for(let i=1; i<=num; i++){
-    result *= BigInt(i);
-  }
-  return result;
-}
-console.log(calcfactorial());
-console.log(calcfactorial(6));
+const artem = new Users('Artem', 'Incognito', 18, true);
+const ivan = new Users('Ivan', 'Incognito', 20, false);
 
-
-  
+console.log(artem.fullname());
