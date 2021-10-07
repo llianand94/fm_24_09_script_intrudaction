@@ -1,33 +1,27 @@
-/* logic */
-function MyArrayProto(){
-  this.push = function(){
-    for (let i = 0; i < arguments.length; i++){
-      this[this.length] = arguments[i];
-    }
-    return this.lenght;
+
+const rabbit = {  
+  color: 'grey',
+  jumping: function(){
+    return `I\'am jumping`;
   }
-  this.pop = function(){
-    if(this.length=== 0){
-      return;
-    }
-    const item = this[--this.length];
-    delete this[this.length];
-    return item;
-  }
-}
+};
 
-/* data */
-function MyArray(){
-  this.lenght = 0;
-  for (let i = 0; i < arguments.length; i++){
-    this.push(arguments[i]);
-  }
-}
+const rabbitDom = {
+  name: 'Bobby',
+  pet: function(){
+    return `${this.name} says: Pet me`;
+  },
+};
 
-/* Prototype */
-MyArray.prototype = new MyArrayProto();
-MyArray.prototype.newMethod = function(){};
+const rabbitMagic = {  
+  say: function(word){
+    return `${this.name} says: ${word}`;
+  },
+};
 
+rabbitDom.__proto__ = rabbit;
+rabbitMagic.__proto__ = rabbitDom;
 
-const myArray = new MyArray(1,1,1,10,5);
-myArray.push(2,2,2);
+console.log(rabbitMagic.say('Привет Ваня'));
+console.log(rabbitMagic.pet());
+console.log(rabbitMagic.jumping());

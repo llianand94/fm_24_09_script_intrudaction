@@ -1,13 +1,13 @@
 /* logic */
 function MyArrayProto(){
-  this.push = function(){
-    for (let i = 0; i < arguments.length; i++){
-      this[this.length] = arguments[i];
+  this.push = function(){ //1,2,3,4,5,8
+    for (let i = 0; i < arguments.length; i++) {
+      this[this.length++] = arguments[i];
     }
-    return this.lenght;
+    return this.length;
   }
   this.pop = function(){
-    if(this.length=== 0){
+    if(this.length===0){
       return;
     }
     const item = this[--this.length];
@@ -15,19 +15,18 @@ function MyArrayProto(){
     return item;
   }
 }
-
 /* data */
 function MyArray(){
-  this.lenght = 0;
-  for (let i = 0; i < arguments.length; i++){
+  this.length = 0;
+  for (let i = 0; i < arguments.length; i++) {
     this.push(arguments[i]);
   }
 }
-
 /* Prototype */
 MyArray.prototype = new MyArrayProto();
-MyArray.prototype.newMethod = function(){};
 
 
-const myArray = new MyArray(1,1,1,10,5);
+const myArray = new MyArray(1,1,1,15,5);
 myArray.push(2,2,2);
+myArray.pop();
+console.log(myArray);
