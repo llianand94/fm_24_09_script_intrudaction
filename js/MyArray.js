@@ -34,6 +34,23 @@ function MyArrayProto(){
     }
     return false;
   }
+  this.every = function(func){
+    for(let i=0; i<this.length; i++){
+      if(func(this[i])===false){ 
+        return false;
+      }
+    }
+    return true;
+  }
+  this.filter = function(func){
+    const result = new MyArray();
+    for(let i=0; i<this.length; i++){
+      if(func(this[i])){
+        result.push(this[i]);
+      }
+    }
+    return result;
+  }
 }
 
 
@@ -46,3 +63,12 @@ const myArray = new MyArray(1,1,1,15,5);
 myArray.push(2,2,2);
 myArray.pop();
 console.log(myArray);
+
+const isEven = function(n) {
+  return n%2 === 0;
+}
+const isOdd = (n) =>{
+  return n%1 === 0;
+}
+
+console.log(myArray.every(isEven));
