@@ -141,14 +141,19 @@ const findMinMax = function(arr){
   return minMaxArr;
 };
 
-console.log( findMinMax(arr14));
+// console.log(findMinMax(arr14));
 
 
 // Дан массив arr. Найдите среднее арифметическое его элементов. Проверьте задачу на массиве с элементами 12, 15, 20, 25, 59, 79.
-
-
-
-
+const arr15 = [12, 15, 20, 25, 59, 79];
+const findAverageValue = function(arr){
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++){
+    sum+=arr[i];
+  }
+  return sum/2;
+}
+console.log(findAverageValue(arr15));
 
 
 
@@ -166,7 +171,7 @@ const degree = function(num, exp){
     return 1/(num* degree(num, -exp-1))
   }
  
-}
+};
 const factorial = function(num){  
   if(num===0){
     return num = 1;
