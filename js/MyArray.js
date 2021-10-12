@@ -55,6 +55,7 @@ function MyArrayProto(){
 
 
 
+
 /* Prototype */
 MyArray.prototype = new MyArrayProto();
 
@@ -72,3 +73,4 @@ const isOdd = (n) =>{
 }
 
 console.log(myArray.every(isEven));
+console.log(myArray);
