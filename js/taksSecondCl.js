@@ -153,7 +153,7 @@ const findAverageValue = function(arr){
   }
   return sum/2;
 }
-console.log(findAverageValue(arr15));
+// console.log(findAverageValue(arr15));
 
 
 
@@ -198,8 +198,14 @@ const findMin = Math.min(...array);
 
 
 // 4) напишите функцию-стрелку, которая принимает неограниченное количество аргументов и возвращает их произведение.
-let mult =  1;
- const returnMylt = (...num)=> {   mult *= num;
 
-  };
+ const returnMult = function(arr){ 
+   let mult =  1;
+   arr.forEach(function(num){
+    return mult = mult * num;
+   }); 
+   return mult;
+ };
+
+  console.log(returnMult(array));
 
