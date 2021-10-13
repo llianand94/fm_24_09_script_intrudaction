@@ -1,5 +1,4 @@
-'use strict';
-      // 08.10.2021
+// 08.10.2021
 // Задачи на работу с массивами в JavaScript
       // concat
 // Даны два массива: [1, 2, 3] и [4, 5, 6]. Объедините их вместе.
@@ -115,13 +114,13 @@ const haveEqual = function(arr){
 
 // Заполните массив 10 случайными числами в диапазоне от 15 до 78. Math.random()
 const arrayRandom = [];
-const fillArray = function(){
-  for (let i = 0; i < 11; i++){
+const fillArray = function(num){
+  for (let i = 0; i < num+1; i++){
     arrayRandom[i] = Math.floor((Math.random()*63)+15);
   }
   return arrayRandom;
 }
-// console.log(fillArray());
+// console.log(fillArray(10));
 
 // Дан массив 4, -2, 5, 19, -130, 0, 10. Найдите минимальное и максимальное число. 
 const arr14 = [4, -2, 5, 19, -130, 0, 10];
@@ -153,59 +152,4 @@ const findAverageValue = function(arr){
   }
   return sum/2;
 }
-// console.log(findAverageValue(arr15));
-
-
-
-// 11.10.2021
-// 1) дописать функцию нахождения степени числа для отрицательной степени. Использовать рекурсию.
-const degree = function(num, exp){
-  if(num===0){
-    return false;
-  }
-  if(exp>1){
-    return num* degree(num, exp-1)
-  } else if(exp===1){
-    return num;
-  } else if (exp<0) {
-    return 1/(num* degree(num, -exp-1))
-  }
- 
-};
-const factorial = function(num){  
-  if(num===0){
-    return num = 1;
-  }
-  return num * factorial(num-1)
-};
-
-// console.log(degree(4,-2));
-
-// 2) написать функцию, которая принимает число и возвращает вложенные пары круглых скобок, равные этому числу. Использовать рекурсию. Например,  pairBrackets(3), должна вывести:  ((())). Если число меньше 1 - выводим одну пару скобок.
-const pairBrackets = function(num){
-  if(num===1|| num < 1){
-    return `()`;
-  }
-  return `(${pairBrackets(num-1)})`
-};
-// console.log(pairBrackets(7));
-
-// 3) дан массив чисел. используя Math и спред оператор найдите минимальный и максимальный элементы массива.
-
-const array = [1,2,2,6,3,4];
-const findMax = Math.max(...array);
-const findMin = Math.min(...array);
-
-
-// 4) напишите функцию-стрелку, которая принимает неограниченное количество аргументов и возвращает их произведение.
-
- const returnMult = function(arr){ 
-   let mult =  1;
-   arr.forEach(function(num){
-    return mult = mult * num;
-   }); 
-   return mult;
- };
-
-  console.log(returnMult(array));
-
+console.log(findAverageValue(arr15));
