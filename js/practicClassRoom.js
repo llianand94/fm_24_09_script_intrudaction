@@ -51,3 +51,29 @@ const findMin = Math.min(...array);
 };
 
 // console.log(returnMylt(1,2,3,6));  заработало ))
+
+
+
+// 12.10.21
+// Написать функцию, которая принимает сроку в качестве аргумета  и возвращает количество гласных, которые есть в этой строке.
+// Гласные: a, u,e, i, o.(латиница)
+// Буквы в верхнем регистре тоже считать.
+
+const countOfVowels = function(str){
+  let counter = 0;
+  const getArray =  str.split('');
+  
+  const patternArr = ['a','u','e','i','o'];
+  
+    for (let i = 0; i < getArray.length; i++) {
+      getArray[i]=getArray[i].toLowerCase();
+      for(let j = 0; j < patternArr.length; j++){
+        console.log(getArray[i]);
+        if(getArray[i]===patternArr[j]){
+          counter++;
+        }
+      }
+    }
+  return counter; 
+      
+};
