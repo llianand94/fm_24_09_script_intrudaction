@@ -5,6 +5,7 @@ function MyArray(){
     this.push(arguments[i]);
   }
 }
+
 /* logic */
 function MyArrayProto(){
   this.push = function(){ //1,2,3,4,5,8
@@ -51,8 +52,63 @@ function MyArrayProto(){
     }
     return result;
   }
+  
+  this.unshift = function(){   
+    for(let i = this.length-1; i>=0; i--){      
+       this[i+arguments.length]= this[i];      
+    }
+    this.length = this.length + arguments.length;
+    
+    for(let j = 0; j<arguments.length; j++){
+      this[j] = arguments[j];    
+    }
+    return  this.length;
+  }
+  this.shift = function(){ 
+    if(this.length===0){
+      return;
+    }
+    const firstElement = this[0];
+    for(let i =1; i< this.length; i++){
+      this[i-1]=this[i]
+    }
+    delete this[this.length-1];
+    this.length --;     
+    return firstElement;
+  }
+  this.concat = function(){     
+    const resultArr = new MyArray;
+    for(let i = 0; i< this.length; i++){
+      resultArr[resultArr.length++] = this[i];
+    }
+    for(let j = 0; j< arguments.length; j++){
+      resultArr[resultArr.length++]= arguments[j];
+    }
+        return resultArr;
+  }
+  this.reverse = function(){
+    
+    for(let i = this.length-1; i >= 0; i-- ){
+      this[this.length++]= this[i];
+    }
+    let statCountArrayItems = 0;
+
+    for(let j = this.length/2; j< this.length; j++ ){
+      this[statCountArrayItems++] = this[j];
+      delete this[j]      
+    }
+    this.length = statCountArrayItems;
+    return this;    
+  }
 }
 
+
+
+// unshift
+// shift
+// concat
+// reverse
+// map
 
 
 
@@ -60,10 +116,11 @@ function MyArrayProto(){
 MyArray.prototype = new MyArrayProto();
 
 
-const myArray = new MyArray(1,1,1,15,5);
-myArray.push(2,2,2);
-myArray.pop();
-console.log(myArray);
+const myArray = new MyArray(1,2,3,4,5);
+// const arr2 = myArray.concat(10,8,6);
+// const arr3 = myArray.concat(arr2);
+// console.log(arr3);
+// console.log(myArray);
 
 const isEven = function(n) {
   return n%2 === 0;
@@ -72,5 +129,4 @@ const isOdd = (n) =>{
   return n%1 === 0;
 }
 
-console.log(myArray.every(isEven));
-console.log(myArray);
+
