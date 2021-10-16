@@ -86,8 +86,7 @@ function MyArrayProto(){
     }
         return resultArr;
   }
-  this.reverse = function(){
-    
+  this.reverse = function(){    
     for(let i = this.length-1; i >= 0; i-- ){
       this[this.length++]= this[i];
     }
@@ -99,6 +98,13 @@ function MyArrayProto(){
     }
     this.length = statCountArrayItems;
     return this;    
+  }
+  this.map = function(func){
+    const newArray = new MyArray;
+    for(let i = 0; i< this.length; i++){
+      newArray[newArray.length++] =  func(this[i]);      
+    }
+    return newArray;
   }
 }
 
@@ -116,7 +122,7 @@ function MyArrayProto(){
 MyArray.prototype = new MyArrayProto();
 
 
-const myArray = new MyArray(1,2,3,4,5);
+const myArray = new MyArray(1,2,3);
 // const arr2 = myArray.concat(10,8,6);
 // const arr3 = myArray.concat(arr2);
 // console.log(arr3);
@@ -127,6 +133,10 @@ const isEven = function(n) {
 }
 const isOdd = (n) =>{
   return n%1 === 0;
+}
+const degree = function(n){
+   return n*n;
+  
 }
 
 
