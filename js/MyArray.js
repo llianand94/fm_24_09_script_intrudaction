@@ -29,4 +29,6 @@ MyArray.prototype = new MyArrayProto();
 const myArray = new MyArray(1,1,1,15,5);
 myArray.push(2,2,2);
 myArray.pop();
-console.log(myArray);
+// console.log(myArray);
+
+

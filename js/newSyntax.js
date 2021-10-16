@@ -2,7 +2,6 @@
 
 class UserClass{
   /**
-   * 
    * @param {string} name 
    * @param {string} sname 
    * @param {number} age MAX_AGE
@@ -47,7 +46,7 @@ class UserClass{
 console.log(UserClass.createTestUser());
 const u3 = new UserClass('Ivan', 'Pewpew', 19)
 
-console.log(u3.isAdult);
+// console.log(u3.isAdult);
 
 
 
@@ -101,3 +100,49 @@ class Worker{
 const w1 = new Worker('Cesar', 'Pewpew', 500, 20);
 const w2 = new Worker('Tim', 'Pewpew', 80, 21);
 // console.log(w1.salary());
+
+
+
+// 16.10.21   task to add some class
+class RangeValidator{
+  /**
+   * 
+   * @param {number} from 
+   * @param {number} to 
+   */
+  constructor(from, to){
+    this._from = from;
+    this._to = to;
+  }
+  get from(){
+    return this._from;
+  }
+  set from(from){
+    if(typeof from !== 'number'){
+      throw TypeError('Parament \"from\" have to be numeric');
+    }
+    this.from = from;
+  }
+  get to(){
+    return this._to;
+  }
+set to(to){
+  if(typeof to !=='number'){
+    throw TypeError('Parament \"to\" have to be numeric ');
+  }
+  this.to = to;
+}
+  get range (){
+    const arr = new Array;
+    arr[0] = this._from;
+    arr[1] = this._to;    
+    return arr;
+  }
+  validate(num){
+    if(num>=this._from&& num<=this._to){
+      return num;
+    }
+    throw RangeError('Value must be from range '+this._from+ ' - ' + this._to);
+  }
+}
+const range1 = new RangeValidator(10,12);
