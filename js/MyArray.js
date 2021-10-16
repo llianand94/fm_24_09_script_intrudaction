@@ -108,13 +108,21 @@ function MyArrayProto(){
   }
 }
 
-
-
 // unshift
 // shift
 // concat
 // reverse
 // map
+const isEven = function(n) {
+  return n%2 === 0;
+}
+const isOdd = (n) =>{
+  return n%1 === 0;
+}
+const degreeNum = function(n){
+   return n*n;
+  
+
 
 
 
@@ -128,15 +136,7 @@ const myArray = new MyArray(1,2,3);
 // console.log(arr3);
 // console.log(myArray);
 
-const isEven = function(n) {
-  return n%2 === 0;
-}
-const isOdd = (n) =>{
-  return n%1 === 0;
-}
-const degree = function(n){
-   return n*n;
-  
+
 }
 
 
