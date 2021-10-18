@@ -1,29 +1,46 @@
 'use strict';
-class User{
-  constructor(name, sname, age){
+class Squirrel{
+  constructor(name, color){
     this.name = name;
-    this.sname = sname;
-    this.age = age;
-    this.isBan = false;
-  }
-  getFullName(){
-    return `${this.name} ${this.sname}`;
+    this.sname = color;
     }
-  static isUser (obj) {
-    return obj instanceof User;
+  jump(){
+    return `${this.name} is jumping`;
+    }
   }
-}
-class Admin extends User{
-  constructor (name, sname, age){
-    super(name, sname, age);
+class FlylingSquirrel extends Squirrel{
+  constructor (name, sname, flyingRange){
+    super(name, sname);
+    this.flyingRange = flyingRange;
   }
-  setBan(obj){
-    if(User.isUser(obj)){
-      obj.isBan = !obj.isBan;
-      return `Set status ${obj.isBan}`;
-    }    
-  }  
-
+  flying(){
+      return `${this.name} Set  flying mode`;
+  }   
 }
-const user = new User('Petro', 'Noname', 21);
-const admin = new Admin('Mew', 'Pewpew', 20);
+class MagicSquirrel extends FlylingSquirrel{
+  constructor(name, sname, flyingRange,songs){
+    super(name, sname, flyingRange);
+    this.arrayOfSongs = songs;
+  }
+//  get arrayOfSongs(){
+//    return this.arrayOfSongs;
+//  }
+ set arrayOfSongs(){
+  this.arrayOfSongs= str.split('');  
+       
+   };  
+ 
+ singSongs(){
+  this.arrayOfSongs.forEach((song)=> {
+    console.log(song) ;
+  });
+ }
+ dancing(){
+  return `${this.name} is  dancing`;
+}
+}
+const animal1 = new Squirrel('Crazy', 'Noname', 21);
+const animal2 = new MagicSquirrel('Mew', 'Pewpew', 20);
+const string = 'sting, any, ect'
+const arr = string.split(', ');
+console.log(arr);
