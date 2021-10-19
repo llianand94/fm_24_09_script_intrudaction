@@ -25,10 +25,10 @@ class MagicSquirrel extends FlylingSquirrel{
 //  get arrayOfSongs(){
 //    return this.arrayOfSongs;
 //  }
- set arrayOfSongs(){
-  this.arrayOfSongs= str.split('');  
+//  set arrayOfSongs(){
+//   this.arrayOfSongs= str.split('');  
        
-   };  
+//    };  
  
  singSongs(){
   this.arrayOfSongs.forEach((song)=> {
