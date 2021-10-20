@@ -121,19 +121,18 @@ class MyArray{
     return obj instanceof MyArray;
   }
 }
-// class MyArrayIterator{
+ class MyArrayIterator{
+   constructor(myArr){
+    this.arr = myArr;
+   }
+  next(){
+    return{
+      value:this.arr[this.currentIndex++],
+      done:this.currentIndex,
+    };
+  }
+};
 
-// }
-// [Symbol.iterator](){
-  
-// this.arr = myArr;
-
-//     next(){
-//       return{
-//         value:this.arr[this.currentIndex++],
-//         done:this.currentIndex> this.arr.length,
-//       };
-//     }
-
-//   };
-// }
+ [Symbol.iterator](){
+  return new MyArrayIterator(this);
+}

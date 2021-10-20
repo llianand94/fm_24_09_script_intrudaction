@@ -94,4 +94,4 @@ const binarySearch = (arr, key) => {
   }
   return -1;
 }
-console.log(binarySearch(sortArr, 8));
+// console.log(binarySearch(sortArr, 8));
