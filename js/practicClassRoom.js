@@ -122,4 +122,68 @@ set to(to){
   }
 }
 const range1 = new RangeValidator(10,12);
-console.log(range1.validate(11));
+// console.log(range1.validate(11));
+
+//19.10.21 Создать класс Figure3D
+// Создать классы-потомки для Шара, Цилиндра и Куба.
+// У всех классов должен быть метод для рассчета объема.
+
+class Figure3D{
+  constructor(name,){
+    this.name = name;
+  }
+  getVolume(){};
+}
+class Orb extends Figure3D{
+  constructor (r){
+    super('Orb');
+    this.r = r;
+  }
+  getVolume(){
+    return `Volume of the ${this.name} equal = ${Math.round(4/3*Math.PI*Math.pow(this.r,3))}`;
+  }
+}
+class Cylinder extends Figure3D{
+  constructor (r, h){
+    super('Cylinder');
+    this.r = r;
+    this.h = h
+  }
+  getVolume(){
+    return Math.round(Math.PI*this.r*this.r*this.h);
+  }
+}
+class Cube extends Figure3D{
+  constructor (r){
+    super('Сube');
+    this.r = r;
+  }
+  getVolume(){
+    return Math.round(Math.pow(this.r,3));
+  }
+}
+
+const orb1 = new Orb(4);
+// console.log(orb1.getVolume());
+
+// console.log(new Cylinder(3,4).getVolume());
+
+// console.log(new Cube(5).getVolume());
+
+//19.10.21
+// Создать класс Друг
+// свойства:
+// -количество конфет (число)
+// -массив друзей (Друг[])
+// метод:
+// -посчитать конфеты - возвращает общее количество конфет у всех друзей
+
+class Friend{
+  constructor(candyCount, arrOfFriends{
+    this.candyCount = candyCount;
+    this.arrOfFriends = new Array(friend);
+  }
+}
+
+const friend1 = new Friend(3,('friend3','friend4'));
+console.log(friend1);
