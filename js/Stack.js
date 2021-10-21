@@ -4,10 +4,8 @@ class Stack{
   constructor(maxSize=5, ...args){
     this._maxSize = maxSize;
     this._size = 0;
-    for (const argument of args) {
-      
-        this.push(argument); 
-             
+    for (const argument of args) {      
+        this.push(argument);             
     }
   }
   // set maxSize(maxSize){
@@ -45,6 +43,17 @@ class Stack{
 
 const stack1 = new Stack(4, 77,30,25);
 
-// const checkBrackets = (str) => {
-
-// }
+const checkBrackets = (str) => {
+  const stack = new Stack(str.length);
+  for (const symbol of str) {
+    if(symbol==='('){
+      this.push(argument); 
+    }
+    if(stack.isEmpty){
+      return false;
+    }
+    if(symbol===')'&& stack.pick()==='('){
+      stack.pop();
+    }    
+  }
+}
