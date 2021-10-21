@@ -179,11 +179,41 @@ const orb1 = new Orb(4);
 // -посчитать конфеты - возвращает общее количество конфет у всех друзей
 
 class Friend{
-  constructor(candyCount, arrOfFriends{
-    this.candyCount = candyCount;
-    this.arrOfFriends = new Array(friend);
+  constructor(candies,...hisFriend){
+    this.candies = candies;
+    this.arrOfFriends = new Array(hisFriend);      
+  }
+  getAmountOfCandies(){
+    let amountOfCandies = 0;
+    // while(this.arrOfFriends!==undefined){
+    //   amountOfCandies= amountOfCandies + this.candies;
+    // }
+    
+    // if(this.candies && this.candies >0){
+    //   return amountOfCandies= amountOfCandies + this.candies;
+    // } 
+    return amountOfCandies;
+  }
+  static isMyFriend (friend){
+    return friend instanceof Friend;
   }
 }
+         
+    const  getFriend = function(candies, hisFriend) { 
+      return new Friend(candies, hisFriend);
 
-const friend1 = new Friend(3,('friend3','friend4'));
-console.log(friend1);
+}
+
+const f1of2 = getFriend(4);
+const f1of1 = getFriend(5, f1of2);
+console.log(f1of1);
+// const friend4of1 = new Friend(4, undefined);
+// const friend3of1 = new Friend(4, undefined);
+// const friend2of1 = new Friend(3, friend3of1,friend4of1);
+// const friend1of1 = new Friend(3, friend2of1);
+// console.log(friend1);
+// console.log(friend1of1);
+
+// 20.10.2021
+// Написать метод удаления последнего элемента для связанного списка
+// pop();
