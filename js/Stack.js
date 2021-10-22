@@ -43,17 +43,34 @@ class Stack{
 
 const stack1 = new Stack(4, 77,30,25);
 
-const checkBrackets = (str) => {
+
+const options = {
+  brackets: {
+    '(': ')',
+    '[':']',
+    '{':'}',
+
+  },
+  isStrict: false,
+}
+const checkBrackets = (str,options) => {
+  const brackets = options.brackets;
+  const closesBrackets = Object.values(brackets);
   const stack = new Stack(str.length);
   for (const symbol of str) {
-    if(symbol==='('){
-      this.push(argument); 
+    if(brackets[symbol]){
+      stack.push(symbol); 
+      continue;
     }
-    if(stack.isEmpty){
-      return false;
-    }
-    if(symbol===')'&& stack.pick()==='('){
+    const lastBracketOfStack = stack.pick();
+    const correctBracket = brackets[lastBracketOfStack];
+    if(symbol===correctBracket){
       stack.pop();
-    }    
+    } else if(closesBrackets.includes(symbol))
+      return false;
+    }  
+    return stack.isEmpty; 
   }
-}
+
+
+console.log(checkBrackets('(())', options));
