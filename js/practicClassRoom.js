@@ -179,11 +179,12 @@ const orb1 = new Orb(4);
 // -посчитать конфеты - возвращает общее количество конфет у всех друзей
 
 class Friend{
-  constructor(candyCount, arrOfFriends{
+  constructor(candyCount,...friends){
     this.candyCount = candyCount;
-    this.arrOfFriends = new Array(friend);
+    this.arrOfFriends = new Array(friends);
   }
+  getAmountOfCandies(){}
 }
 
-const friend1 = new Friend(3,('friend3','friend4'));
+const friend1 = new Friend(3,);
 console.log(friend1);
