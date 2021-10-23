@@ -47,7 +47,17 @@ class LinkedList{
     }
     return ++this.length;
   }
+  pop(){
+    const lastItem = this.tail;
+    delete this.tail;
+    this.tail = lastItem.prev;
+    lastItem.prev.next = null;
+    this.length--;
+    return lastItem;
+  }
   [Symbol.iterator](){
     return new LinkedListIterator(this);
   }
 } 
+const li = new LinkedList(10,11,12,99);
+console.log(li)
