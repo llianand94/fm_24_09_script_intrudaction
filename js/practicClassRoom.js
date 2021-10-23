@@ -129,8 +129,17 @@ const range1 = new RangeValidator(10,12);
 // У всех классов должен быть метод для рассчета объема.
 
 class Figure3D{
-  constructor(name,){
+  constructor(name){
     this.name = name;
+  }
+  get name(){
+    return this._name;
+  }
+  set name(name){
+    if(typeof name!=='string'){
+      throw TypeError('You need to specify the name of figure as a string ');
+    }
+    this._name = name;
   }
   getVolume(){};
 }
@@ -139,6 +148,19 @@ class Orb extends Figure3D{
     super('Orb');
     this.r = r;
   }
+  get r(){
+    return this._r;
+  }
+  set r(r){
+    if(typeof r!=='number'){
+      throw TypeError('Please enter radius as a number!')
+    }
+    if(r>=BigInt || r<=0){
+      throw RangeError('Specify the value of radius equal  more than 0');
+    }
+    this._r= r;
+  }
+
   getVolume(){
     return `Volume of the ${this.name} equal = ${Math.round(4/3*Math.PI*Math.pow(this.r,3))}`;
   }
@@ -149,6 +171,30 @@ class Cylinder extends Figure3D{
     this.r = r;
     this.h = h
   }
+  get r(){
+    return this._r;
+  }
+  set r(r){
+    if(typeof r!=='number'){
+      throw TypeError('Please enter radius as a number!')
+    }
+    if(r>=BigInt || r<=0){
+      throw RangeError('Specify the value of radius equal  more than 0');
+    }
+    this._r= r;
+  }
+  get h(){
+    return this._h;
+  }
+  set h(h){
+    if(typeof h!=='number'){
+      throw TypeError('Please enter the high as a number!')
+    }
+    if(h>=BigInt || h<=0){
+      throw RangeError('Specify the value of radius equal  more than 0');
+    }
+    this._h= h;
+  }
   getVolume(){
     return Math.round(Math.PI*this.r*this.r*this.h);
   }
@@ -158,13 +204,28 @@ class Cube extends Figure3D{
     super('Сube');
     this.r = r;
   }
+  get r(){
+    return this._r;
+  }
+  set r(r){
+    if(typeof r!=='number'){
+      throw TypeError('Please enter side as a number!')
+    }
+    if(r>=BigInt || r<=0){
+      throw RangeError('Specify the value of side equal  more than 0');
+    }
+    this._r= r;
+  }
+  get h(){
+    return this._h;
+  }
   getVolume(){
     return Math.round(Math.pow(this.r,3));
   }
 }
 
 const orb1 = new Orb(4);
-// console.log(orb1.getVolume());
+console.log(orb1.getVolume());
 
 // console.log(new Cylinder(3,4).getVolume());
 
