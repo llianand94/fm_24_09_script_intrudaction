@@ -179,24 +179,11 @@ const orb1 = new Orb(4);
 // -посчитать конфеты - возвращает общее количество конфет у всех друзей
 
 class Friend{
-  constructor(candies,...hisFriend){
-    this.candies = candies;
-    this.arrOfFriends = new Array(hisFriend);      
+  constructor(candyCount,...friends){
+    this.candyCount = candyCount;
+    this.arrOfFriends = new Array(friends);
   }
-  getAmountOfCandies(){
-    let amountOfCandies = 0;
-    // while(this.arrOfFriends!==undefined){
-    //   amountOfCandies= amountOfCandies + this.candies;
-    // }
-    
-    // if(this.candies && this.candies >0){
-    //   return amountOfCandies= amountOfCandies + this.candies;
-    // } 
-    return amountOfCandies;
-  }
-  static isMyFriend (friend){
-    return friend instanceof Friend;
-  }
+  getAmountOfCandies(){}
 }
          
     const  getFriend = function(candies, hisFriend) { 
