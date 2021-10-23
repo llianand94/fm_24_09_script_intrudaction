@@ -225,7 +225,7 @@ class Cube extends Figure3D{
 }
 
 const orb1 = new Orb(4);
-console.log(orb1.getVolume());
+// console.log(orb1.getVolume());
 
 // console.log(new Cylinder(3,4).getVolume());
 
@@ -243,15 +243,28 @@ class Friend{
   constructor(candyCount,...friends){
     this.candyCount = candyCount;
     this.arrOfFriends = new Array(friends);
+    
   }
-  getAmountOfCandies(){}
-}
-         
+  
+  getAmountOfCandies(){
+    
+    if(this.arrOfFriends === undefined){
+      candyCounter = candyCounter + this.candyCount
+    }
+    this.arrOfFriends.forEach(getAmountOfCandies()); 
+    
+    
+  }
+}         
     const  getFriend = function(candies, hisFriend) { 
       return new Friend(candies, hisFriend);
 
 }
-
+const te = function (arr){
+  for( const el of arr){
+  console.log(el);
+  }
+}
 const f1of2 = getFriend(4);
 const f1of1 = getFriend(5, f1of2);
 console.log(f1of1);
@@ -265,3 +278,12 @@ console.log(f1of1);
 // 20.10.2021
 // Написать метод удаления последнего элемента для связанного списка
 // pop();
+// сделал в ./js/LinkedList
+
+// 22.10.2021
+// функция сливает поочередно две очереди в одну новую
+// const mergeQueues = (q1, q2) => {
+//   const q3 = new Queue();
+//   дописать
+//   return q3;
+//   }
