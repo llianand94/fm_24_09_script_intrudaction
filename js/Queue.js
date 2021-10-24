@@ -38,7 +38,7 @@ const mergeQueues = (q1, q2) => {
     q3.push(unshiftItemQ2);
     }
    }
-    return q3;
+    return q3; 
 }
 const qu1 = new Queue(1,2,3,4,5,6);
 const qu2 = new Queue(8,9);
