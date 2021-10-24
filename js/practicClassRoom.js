@@ -242,31 +242,32 @@ const orb1 = new Orb(4);
 class Friend{
   constructor(candyCount,...friends){
     this.candyCount = candyCount;
-    this.arrOfFriends = new Array(friends);
-    
+    this.arrOfFriends = [];
+    for (const iterator of friends) {    
+      this.arrOfFriends.push(iterator);
+    }    
   }
   
   getAmountOfCandies(){
-    
-    if(this.arrOfFriends === undefined){
-      candyCounter = candyCounter + this.candyCount
+    let candyCounter = 0;
+    candyCounter += this.candyCount;
+    if(Boolean(this.arrOfFriends)){
+      for(let i = 0;i<this.arrOfFriends.length ; i++ ){   
+        candyCounter+= this.arrOfFriends[i].candyCount ;
+        
+      }
     }
-    this.arrOfFriends.forEach(getAmountOfCandies()); 
-    
-    
+    return candyCounter;    
   }
 }         
-    const  getFriend = function(candies, hisFriend) { 
-      return new Friend(candies, hisFriend);
+
+const  getFriend = (candies, hisFriend) =>{
+  return new Friend(candies, hisFriend);
 
 }
-const te = function (arr){
-  for( const el of arr){
-  console.log(el);
-  }
-}
+const f1of3 = getFriend(2);
 const f1of2 = getFriend(4);
-const f1of1 = getFriend(5, f1of2);
+const f1of1 = getFriend(5, f1of2, f1of2,f1of2);
 console.log(f1of1);
 // const friend4of1 = new Friend(4, undefined);
 // const friend3of1 = new Friend(4, undefined);
@@ -278,7 +279,7 @@ console.log(f1of1);
 // 20.10.2021
 // Написать метод удаления последнего элемента для связанного списка
 // pop();
-// сделал в ./js/LinkedList
+// сделал в ./js/LinkedLists.js
 
 // 22.10.2021
 // функция сливает поочередно две очереди в одну новую
@@ -287,3 +288,5 @@ console.log(f1of1);
 //   дописать
 //   return q3;
 //   }
+// сделал . Ветка classes;
+// ./js/Queue.js
