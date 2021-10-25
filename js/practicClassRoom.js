@@ -248,21 +248,17 @@ class Friend{
     }    
   }
   
-  getAmountOfCandies(){
-    
-    if(this.arrOfFriends.length!==0){      
-      const candyCounter = this.arrOfFriends.reduce((total, iterElem)=>{ 
-        return total + iterElem.candyCount;
-      },this.candyCount);
-      return candyCounter;       
-    }   
-       
+  getAmountOfCandies(){        
+      const candyCounter = this.arrOfFriends.reduce((total, iterElem)=>  total + iterElem.getAmountOfCandies() , this.candyCount);
+      return candyCounter;           
   }
 }         
 
 
-const f1 = new Friend(5)
-const f2 = new Friend(7)
+const f1 = new Friend(5);
+const f4 = new Friend(7);
+const f5 = new Friend(7);
+const f2 = new Friend(7, f4, f5);
 const me = new Friend(4, f1, f2);
 
 console.log(me);
