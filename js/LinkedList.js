@@ -48,6 +48,9 @@ class LinkedList{
     return ++this.length;
   }
   pop(){
+    if(this.tail===this.head){
+      return RangeError('You can\'t call method pop() to last Element')
+    }
     const lastItem = this.tail;
     delete this.tail;
     this.tail = lastItem.prev;
