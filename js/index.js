@@ -1,97 +1,71 @@
 'use strict';
-class Squirrel{
-  constructor(name, color){
-    this.name = name;
-    this.sname = color;
-    }
-  jump(){
-    return `${this.name} is jumping`;
-    }
-  }
-class FlylingSquirrel extends Squirrel{
-  constructor (name, sname, flyingRange){
-    super(name, sname);
-    this.flyingRange = flyingRange;
-  }
-  flying(){
-      return `${this.name} Set  flying mode`;
-  }   
+
+const user1 = {
+  id:1,
+  name:'Elon',
+  age:50,
 }
-class MagicSquirrel extends FlylingSquirrel{
-  constructor(name, sname, flyingRange,songs){
-    super(name, sname, flyingRange);
-    this.arrayOfSongs = songs;
-  }
-//  get arrayOfSongs(){
-//    return this.arrayOfSongs;
-//  }
-//  set arrayOfSongs(){
-//   this.arrayOfSongs= str.split('');  
-       
-//    };  
- 
- singSongs(){
-  this.arrayOfSongs.forEach((song)=> {
-    console.log(song) ;
-  });
- }
- dancing(){
-  return `${this.name} is  dancing`;
+const user2 = {
+  id:2,
+  name:'Elon',
+  age:50,
 }
+
+const msgElon = ['12','hi!','bye!'];
+const msgElen = ['Qwerty','hello!','add!'];
+
+
+const mapObj = new Map();
+mapObj.set(user1.id, msgElen);
+mapObj.set(user2.id, msgElon);
+
+
+console.log(mapObj);
+
+const getUserMsg = ({id})=>{  
+  mapObj.get(id).forEach(msg=> console.log(msg)); 
 }
-const animal1 = new Squirrel('Crazy', 'Noname', 21);
-const animal2 = new MagicSquirrel('Mew', 'Pewpew', 20);
-const string = 'sting, any, ect'
-const arr = string.split(', ');
-// console.log(arr);
 
-const mySymbol1 = Symbol('Memka tolko Jla Bac');
+getUserMsg(user2);
 
+const str1 = 'qwerttt';
+const str2 = 'qwerttt';
+// for (const iterator of str) {
+//   console.log(iterator);
+// }
 
-//  20.10.2021 сложность алгоритмов Big 'O'
-const arr5 = [1,2,3,4];
-// константная сложность
-console.log(arr5[3]);
-
-// линейная сложность
-const linearSearch = (arr, key) => {
-  for(let i = 0; i< arr.length; i++){
-    if(arr[i]===key){
-      return i;
-    }
-  };
-  return -1;
-}
-// квадратичная
-const createTable = (num) => {
-  const table = [];
- for (let i = 1; i <= num ;i++) {
-   for(let j= 1; j<= 9; j++ ){
-     table.push(`${i}*${j}= ${i*j}`)
-   }   
- }
-  return table;
-}
-// console.log(createTable(6));
-
-// логарифмическая сложность
-const sortArr = [1,3,5,6,8,9,12,14,30];
-
-const binarySearch = (arr, key) => {
-  let start = 0;
-  let end = arr.length-1;
-  let middle;
-  while(start<=end){
-    middle = Math.round((start + end)/2);
-    if(arr[middle]===key){
-      return middle;
-    }
-    if(arr[middle]<key){
-      start = middle + 1;
-    }else {
-      end = middle -1;
+const createMap = (str) =>{
+  const mapCompare = new Map();  
+  for (const letter of str) {
+    if(mapCompare.has(letter)){
+      const amount = mapCompare.get(letter);
+      mapCompare.set(letter,amount+1);      
+    } else {
+      mapCompare.set(letter,1);
     }
   }
-  return -1;
+  return  mapCompare;
 }
-// console.log(binarySearch(sortArr, 8));
+
+const compare = (str1, str2)=>{
+  if(str1.length !== str2.length){
+    return false
+  }  
+  const mapCompare1 = createMap(str1);
+  const mapCompare2 = createMap(str2);
+  console.log(mapCompare1);  
+  console.log(mapCompare2);
+
+  if(mapCompare1.size!==mapCompare1.size){
+    return false;
+  }
+  for (const key of mapCompare1.keys()) {
+    if(mapCompare1.get(key)!==mapCompare2.get(key)){
+      return false;
+    }
+    return true;
+  }
+};
+
+compare(str1, str2);
+
