@@ -249,32 +249,23 @@ class Friend{
   }
   
   getAmountOfCandies(){
-    let candyCounter = 0;
-    candyCounter += this.candyCount;
-    if(Boolean(this.arrOfFriends)){
-      for(let i = 0;i<this.arrOfFriends.length ; i++ ){   
-        candyCounter+= this.arrOfFriends[i].candyCount ;
-        
-      }
-    }
-    return candyCounter;    
+    
+    if(this.arrOfFriends.length!==0){      
+      const candyCounter = this.arrOfFriends.reduce((total, iterElem)=>{ 
+        return total + iterElem.candyCount;
+      },this.candyCount);
+      return candyCounter;       
+    }   
+       
   }
 }         
 
-const  getFriend = (candies, hisFriend) =>{
-  return new Friend(candies, hisFriend);
 
-}
-const f1of3 = getFriend(2);
-const f1of2 = getFriend(4);
-const f1of1 = getFriend(5, f1of2, f1of2,f1of2);
-console.log(f1of1);
-// const friend4of1 = new Friend(4, undefined);
-// const friend3of1 = new Friend(4, undefined);
-// const friend2of1 = new Friend(3, friend3of1,friend4of1);
-// const friend1of1 = new Friend(3, friend2of1);
-// console.log(friend1);
-// console.log(friend1of1);
+const f1 = new Friend(5)
+const f2 = new Friend(7)
+const me = new Friend(4, f1, f2);
+
+console.log(me);
 
 // 20.10.2021
 // Написать метод удаления последнего элемента для связанного списка
