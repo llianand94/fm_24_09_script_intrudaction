@@ -69,20 +69,22 @@ class Group{
     }
     this._nameGroup=nameGroup;
   }
-  showStudents(){
-    console.log('Group '+ this.nameGroup +' consist of: ')
+  showStudents(){    
+    const groupComposition = 'Group '+ this.nameGroup +' consist of: ';
+    console.log(groupComposition);    
     for (const student of this.students) {
-      console.log(`${student.sname} ${student.name.slice(0,1)}.`)      
+      const getNeededName = function(){
+        return student.sname.slice(0,1).toUpperCase()+ student.sname.slice(1) + ' ' + student.name.slice(0,1).toUpperCase()+ '.'};
+        console.log(getNeededName());          
     }
   };
 }
 
-
-const ivan = new Student('Ivan', 'Pewpew', 2017);
-const tima = new Student('Timofey', 'Yurta', 2019);
-const oleg = new Student('Oleg', 'Convoke', 2017);
-const me = new Student('Andrey', 'Shap', 2021);
-const mentor = new Student('Elena', 'Zdanovska', 2017);
+const ivan = new Student('ivan', 'pewpew', 2017);
+const tima = new Student('timofey', 'yurta', 2019);
+const oleg = new Student('oleg', 'convoke', 2017);
+const me = new Student('andrey', 'shapovalov', 2021);
+const mentor = new Student('elena', 'zdanovska', 2017);
 const gr1 = new Group('fm21-2', mentor, ivan, tima, oleg, me);
 
 gr1.showStudents();
