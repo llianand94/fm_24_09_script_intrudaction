@@ -24,32 +24,65 @@ class User{
   get getFullName(){
     return `${this.name} ${this.sname}.`;
   }
-  
 }
-const newUser1 = new User('7','None');
-console.log(newUser1);
 
-
-
-class Studend extends User{
-  constructor(name,sname,year=(new Date()).getFullYear()){
+class Student extends User{
+  constructor(name,sname,year=CURRENTYEAR){
       super(name,sname);      
       this.year= year;
   }
   get year(){
-    return this._sname;
+    return this._year;
   }
   set year(year){
     if(typeof year !== 'number'){
-      throw new TypeError('Year have to be a number');
+      throw new TypeError('Year of admission have to be a number');
     }
-    if(year < (new Date()).getFullYear()-5){
-      throw new RangeError(`Year must be > ${(new Date()).getFullYear()-5)} and < ${(new Date()).getFullYear()}`);
+    if(year < CURRENTYEAR-4 || year > CURRENTYEAR){
+      throw new RangeError(`Year of admission must be ain't less ${CURRENTYEAR-4} and no more ${CURRENTYEAR}`);
     }
     this._year=year;
   }
   get getCourse(){
-    return (new Date()).getFullYear()-this.year;
+    return  CURRENTYEAR-this.year+1;
   }
 }
-const stud1 = new Studend('Ivan', 'Pewpew', 2017);
+
+class Group{
+  constructor(nameGroup, ...students){
+    this.nameGroup = nameGroup;
+    this.students = new Array();
+    for (const student of students) {
+      if(student instanceof Student){
+        this.students.push(student);
+      } else {
+        throw TypeError('Student must inherit to the \'Student\' class');
+      }            
+    }
+  }
+  get nameGroup(){
+    return this._nameGroup;
+  }
+  set nameGroup(nameGroup){
+    if(typeof nameGroup !== 'string'){
+      throw new TypeError('Specify name of group by letters');
+    }
+    this._nameGroup=nameGroup;
+  }
+  showStudents(){
+    console.log('Group '+ this.nameGroup +' consist of: ')
+    for (const student of this.students) {
+      console.log(`${student.sname} ${student.name.slice(0,1)}.`)      
+    }
+  };
+}
+
+
+const ivan = new Student('Ivan', 'Pewpew', 2017);
+const tima = new Student('Timofey', 'Yurta', 2019);
+const oleg = new Student('Oleg', 'Convoke', 2017);
+const me = new Student('Andrey', 'Shap', 2021);
+const mentor = new Student('Elena', 'Zdanovska', 2017);
+const gr1 = new Group('fm21-2', mentor, ivan, tima, oleg, me);
+
+gr1.showStudents();
