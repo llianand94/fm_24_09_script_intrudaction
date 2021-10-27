@@ -6,11 +6,14 @@ class User{
   get name(){
     return this._name;
   }
+  // const getNeededName = function(){
+  //   return student.sname.slice(0,1).toUpperCase()+ student.sname.slice(1).toLowerCase() + ' ' + student.name.slice(0,1).toUpperCase()+ '.'};
+
   set name(name){
     if(typeof name !== 'string'){
       throw new TypeError('Specify name by letters');
     }
-    this._name=name;
+    this._name=name.slice(0,1).toUpperCase()+name.slice(1).toLowerCase();
   }
   get sname(){
     return this._sname;
@@ -19,7 +22,7 @@ class User{
     if(typeof sname !== 'string'){
       throw new TypeError('Specify sname by letters');
     }
-    this._sname=sname;
+    this._sname=sname.slice(0,1).toUpperCase()+sname.slice(1).toLowerCase();
   }
   get getFullName(){
     return `${this.name} ${this.sname}.`;
@@ -73,15 +76,14 @@ class Group{
     const groupComposition = 'Group '+ this.nameGroup +' consist of: ';
     console.log(groupComposition);    
     for (const student of this.students) {
-      const getNeededName = function(){
-        return student.sname.slice(0,1).toUpperCase()+ student.sname.slice(1) + ' ' + student.name.slice(0,1).toUpperCase()+ '.'};
-        console.log(getNeededName());          
+      const getNeededFormat = student.sname + ' ' + student.name.slice(0,1)+ '.';      
+        console.log(getNeededFormat);          
     }
   };
 }
 
 const ivan = new Student('ivan', 'pewpew', 2017);
-const tima = new Student('timofey', 'yurta', 2019);
+const tima = new Student('timofey', 'yuRTa', 2019);
 const oleg = new Student('oleg', 'convoke', 2017);
 const me = new Student('andrey', 'shapovalov', 2021);
 const mentor = new Student('elena', 'zdanovska', 2017);
